@@ -21,8 +21,3 @@ Create a publisher (pub_pwm.py) to send a PWM signal value to the ESP, where a s
 
   ![image](https://github.com/HerickDallagnol/Pwm_nodos/assets/140270456/5b5eec31-60f1-41ac-9840-276fc511af99)
 
-5 -  We can see if the node is publishing using:
-
-    $ rostopic echo /PwmReceive
-
-![image](https://github.com/HerickDallagnol/Pwm_nodos/assets/140270456/0dea441e-b62e-4621-a351-fbfd14377668)
