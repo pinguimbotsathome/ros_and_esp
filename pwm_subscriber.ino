@@ -2,11 +2,13 @@
 
 #include <ros.h>
 #include <std_msgs/Int32.h>
+//#include <esp32-hal-ledc.h>
+#define USE_USBCON
 
 ros::NodeHandle nh;
 
 int pwmChannel= 0;
-int pwmPin = 34;
+int pwmPin = 2;
 int frequence = 1000; // 1KHz
 int resolution = 8;
 
@@ -20,17 +22,17 @@ void vcc (const std_msgs::Int32 &PwmReceive){
 ros::Subscriber<std_msgs::Int32> sub("PwmReceive", &vcc);
 
 void setup() {
-  Serial.begin(9600);
-  nh.getHardware()->setBaud(9600);
-  sleep(1);
-  nh.initNode();
-
+  nh.getHardware()->setBaud(115200);
   ledcSetup(pwmChannel, frequence, resolution);
+  //delay(2000);
+
+  nh.initNode();
+  nh.subscribe(sub);
+ 
+ 
 }
 
 void loop() {
-
-  nh.subscribe(sub);
   nh.spinOnce();
-  delay(1);
+  //while(!nh.connected()) {nh.spinOnce();}
 }
