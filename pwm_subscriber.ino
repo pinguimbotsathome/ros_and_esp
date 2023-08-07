@@ -18,7 +18,7 @@ void vcc(const std_msgs::Int32 &PwmReceive) {
 ros::Subscriber<std_msgs::Int32> sub("PwmReceive", &vcc);
 
 void setup() {
-  nh.getHardware()->setBaud(115200);
+  nh.getHardware()->setBaud(9600);
 
   ledcSetup(pwmChannel, frequence, resolution);
 
