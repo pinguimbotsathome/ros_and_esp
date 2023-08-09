@@ -21,9 +21,14 @@ void setup()
   nh.initNode();
   nh.subscribe(sub);
 
+  pinMode(25,OUTPUT);
+  pinMode(26,OUTPUT);
+
 } 
 
 void loop()
 {
+  dacWrite(25,move1);
+  dacWrite(26,move2);
   nh.spinOnce();
 }
