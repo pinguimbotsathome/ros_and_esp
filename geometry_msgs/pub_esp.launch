@@ -1,8 +1,8 @@
 <launch>
 	<node 
-		name="PubNode"        pkg="gps_node"      type="twist_pub.py">
+		name="twist_node"        pkg="twist_msgs"      type="twist_pub.py">
    	</node>
-    	<node name="PwmReceive"        pkg="rosserial_python"      type="serial_node.py" output = "screen">
+    	<node name="esp_node"        pkg="rosserial_python"      type="serial_node.py" output = "screen">
 	    <param name="port"              type="string"               value="/dev/ttyACM0"/>
 	    <param name="baud"              type="int"                  value="115200"/>
 		
